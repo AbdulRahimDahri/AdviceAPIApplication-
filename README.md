@@ -1,70 +1,84 @@
-# 🧪 Java Developer Hiring Task: Advice API Enhancement
+# 🧪 Java Developer Task — Advice API (CRUD + H2)
 
-Welcome! This task is designed to evaluate your skills in Java Spring Boot development, API design, and secure application architecture. You’ll be working with a basic Advice API application and extending it based on your own technical judgment.
-
----
-
-## 📦 Project Overview
-
-The application should include:
-
-- JWT-based authentication
-- Role-based authorization (`ADMIN`, `USER`)
-- CRUD operations for an `Advice` entity
-- Paginated API responses
-- H2 in-memory database
-- Swagger/OpenAPI documentation
+## 📌 Overview
+This is a simple **Advice API** built using **Java Spring Boot** that allows you to perform CRUD operations on advice messages.  
+It uses **H2 in-memory database** for quick testing and requires **no authentication** for API access.
 
 ---
 
-## 📝 Your Task
-
-Your goal is to enhance and evolve the Advice API. You are free to make architectural, design, and implementation decisions as long as they align with best practices.
-
-### Suggested Areas to Explore
-
-You may choose to implement one or more of the following enhancements—or propose your own:
-
-- **User Registration Flow**  
-  Add a secure way for users to register and authenticate.
-
-- **Advice Rating System**  
-  Allow users to rate advice entries and retrieve top-rated ones.
-
-- **Advanced Pagination or Filtering**  
-  Improve the API’s usability with flexible query options.
-
-- **Role Management**  
-  Introduce role assignment or role-based access control improvements.
-
-- **DTO Mapping and Validation**  
-  Use tools like MapStruct or manual mapping to separate concerns.
-
-- **Testing Strategy**  
-  Add unit or integration tests to validate core logic.
-
-- **Swagger Improvements**  
-  Enhance API documentation with examples and descriptions.
-
-Feel free to go beyond these suggestions if you have ideas that improve the application’s usability, scalability, or maintainability.
+## ⚙️ Tech Stack
+- Java 17
+- Spring Boot 3.x
+- Spring Data JPA
+- H2 Database (in-memory)
+- Spring Web
+- Lombok
 
 ---
 
-## ✅ What We’re Looking For
+## 🚀 How to Run Locally
 
-| Area                     | What We Value                                             |
-|--------------------------|-----------------------------------------------------------|
-| Code Quality             | Clean, readable, and maintainable code                   |
-| Spring Boot Proficiency  | Proper use of annotations, configuration, and structure  |
-| Security Awareness       | Secure handling of authentication and authorization      |
-| API Design               | RESTful principles, pagination, and documentation         |
-| Problem Solving          | Thoughtful decisions and creative solutions              |
-| Testing (Optional)       | Demonstrated understanding of testing practices          |
+### 1️⃣ Clone the repository
+```bash
+git clone https://github.com/abdul-rahim/AdviceAPIApplication.git
+cd AdviceAPIApplication
+```
+
+### 2️⃣ Build the project
+```bash
+mvn clean install
+```
+
+### 3️⃣ Run the application
+```bash
+mvn spring-boot:run
+```
+
+The app will start at:  
+```
+http://localhost:8080
+```
 
 ---
 
-## 🚀 Submission Instructions
+## 💾 H2 Database Console
+You can view the in-memory DB here:  
+```
+http://localhost:8080/h2-console
+```
+- **JDBC URL:** `jdbc:h2:mem:advice-db`
+- **Username:** `sa`
+- **Password:** *(leave blank)*
 
-- Please make sure to implement your enhancements.
-- Update this README.md to explain your changes and decisions.
-- Create a branch and make a pull request.
+---
+
+## 📡 API Endpoints
+
+| Method | Endpoint | Description | Request Body (JSON) |
+|--------|----------|-------------|---------------------|
+| GET    | `/api/advice` | Get all advices | — |
+| GET    | `/api/advice/{id}` | Get advice by ID | — |
+| POST   | `/api/advice` | Add new advice | `{ "message": "Your advice here" }` |
+| PUT    | `/api/advice/{id}` | Update existing advice | `{ "message": "Updated advice" }` |
+| DELETE | `/api/advice/{id}` | Delete advice by ID | — |
+
+---
+
+## 📌 Example Request (POST)
+**POST** `/api/advice`
+```json
+{
+  "message": "Never stop learning"
+}
+```
+
+---
+
+## 📝 Notes
+- The database is **in-memory**, so all data will reset after restarting the application.
+- Default sample advices are inserted automatically when the app starts.
+
+---
+
+## ✨ Author
+Developed by **Abdul Raheem** as part of a Java Developer Hiring Task.
