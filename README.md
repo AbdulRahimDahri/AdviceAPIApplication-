@@ -20,7 +20,7 @@ It uses **H2 in-memory database** for quick testing and requires **no authentica
 
 ### 1️⃣ Clone the repository
 ```bash
-git clone https://github.com/abdul-rahim/AdviceAPIApplication.git
+git clone https://github.com/AbdulRahimDahri/AdviceAPIApplication-.git
 cd AdviceAPIApplication
 ```
 
